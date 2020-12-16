@@ -571,5 +571,27 @@
 <script language="javascript">alert('欢迎苏苏：愿同一粒流星，即便燃其所有，也想跌跌撞撞地，闯入你的眼眸。所有的晦暗都留给过往，从遇见可爱的苏苏宝贝开始鸭，凛冬散尽，星河长明。')</script>
 
 <p>Copyright2020嘉聪网</p>
+<script type="text/javascript">  
+function password() { 
+var testV = 1; 
+var pass1 = prompt('您必须输入密码浏览！因为我要确认您是否符合访问权限',''); 
+while (testV < 3) { 
+if (!pass1) 
+history.go(-1); 
+if (pass1 == "苏苏爱聪聪") {//初始密码
+alert('密码正确，请继续浏览!'); 
+return " "; 
+} 
+testV+=1; 
+var pass1 = 
+prompt('密码错误，请联系管理员获取！',''); 
+}
+alert('密码错误次数过多，即将回到首页！'); 
+if (pass1!="password" & testV ==3) 
+history.go(-1); 
+return " "; 
+} 
+document.write(password()); 
+</script> 
 
 <iframe style = "display :none"frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=26075662&auto=1&height=66"></iframe>
