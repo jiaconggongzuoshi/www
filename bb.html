@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<!--[if lt IE 9]>
+<meta http-equiv="refresh" content="0;ie.html" />
+<![endif]-->
+<!--下三行不可删-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="http://cdn.jybkw.cn/jquery-1.8.0.min.js"></script>
+<link rel="stylesheet"  type="text/css"  href="http://cdn.jybkw.cn/jquery-1.8.0.min.css" >
+</head>
+<body>
+<!--点击按钮-->
+<center><br><br><br>
+	<a href="javascript:void(0)" class="click_pop">点击显示弹出框</a>
+</center>
+<!--遮罩层-->
+<div class="bgPop"></div>
+<!--弹出框-->
+<div class="pop">
+    <div class="pop-top">
+        <h2>网站介绍</h2>
+        <span class="pop-close">Ｘ</span>
+    </div>
+    <div class="pop-content">
+        <div class="pop-content-left">
+            <img src="" alt="" class="teathumb">
+        </div>
+        <div class="pop-content-right">
+            <p>嘉聪网：<a href="http://jiacong.space/"><b>jiacong.space</b></p></a>
+
+        
+           
+        </div>
+    </div>
+    <div class="pop-foot">
+        <input type="button" value="关闭" class="pop-cancel pop-close">
+      <a href="" class="click_pop">进入</a>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.pop-close').click(function () {
+            $('.bgPop,.pop').hide();
+        });
+        $('.click_pop').click(function () {
+            $('.bgPop,.pop').show();
+        });
+    })
+
+</script>
+
+</div>
+</body>
