@@ -12,7 +12,7 @@ $(function () {
                 i++;
             }, 4000);
         } else {
-			$('.begin').html('<a href="Memories.html" style="text-decoration: none;color: #fff;background: pink;display: inline-block;padding: 10px;border: 2px solid #fff;">点我进入，里边是不太会表达，的我给你说的话</a>');
+			$('.begin').html('<a href="Memories.html" style="text-decoration: none;color: #fff;background: pink;display: inline-block;padding: 10px;border: 2px solid #fff;">点我进入下一项宝儿</a>');
 			$('.begin').fadeIn();
             return;
         }
