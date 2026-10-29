@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赵秋田 · 生日快乐 🎂</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#1a0a1e 0%,#2d1b3d 40%,#1a0a2e 100%);
+  display:flex;justify-content:center;align-items:center;
+  font-family:'PingFang SC','Microsoft YaHei',sans-serif;
+  overflow-x:hidden;padding:20px;
+}
+
+/* === 星空背景 === */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.star{
+  position:absolute;background:#fff;border-radius:50%;
+  animation:twinkle 2s ease-in-out infinite alternate;
+}
+@keyframes twinkle{0%{opacity:.2;transform:scale(.8)}100%{opacity:1;transform:scale(1.2)}}
+
+/* === 主卡片 === */
+.card{
+  position:relative;z-index:1;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:24px;
+  max-width:520px;width:100%;
+  padding:50px 35px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+  animation:cardIn 1s ease-out;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+/* === 蛋糕 === */
+.cake{font-size:80px;margin-bottom:10px;animation:bounce 2s ease infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* === 标题 === */
+h1{
+  font-size:2.4rem;
+  background:linear-gradient(90deg,#ff9a9e,#fad0c4,#ffecd2);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+.subtitle{color:rgba(255,255,255,.6);font-size:.95rem;margin-bottom:30px}
+
+/* === 蜡烛区 === */
+.candles{display:flex;justify-content:center;gap:18px;margin:25px 0}
+.candle{
+  width:14px;height:50px;
+  background:linear-gradient(to bottom,#ff6b9d,#c44569);
+  border-radius:4px 4px 2px 2px;
+  position:relative;cursor:pointer;
+  transition:transform .3s;
+}
+.candle:hover{transform:scale(1.1)}
+.flame{
+  position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+  width:12px;height:18px;
+  background:radial-gradient(ellipse at bottom,#ffd700,#ff6b00,transparent);
+  border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  animation:flicker .3s ease-in-out infinite alternate;
+}
+.flame.out{animation:none;opacity:0;transition:opacity .5s}
+@keyframes flicker{0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.15) rotate(3deg)}}
+
+.blow-hint{color:rgba(255,255,255,.45);font-size:.85rem;margin-top:10px}
+
+/* === 祝福语 === */
+.wish{
+  color:rgba(255,255,255,.85);
+  font-size:1rem;line-height:2;
+  margin:25px 0;
+  padding:20px;
+  background:rgba(255,255,255,.05);
+  border-radius:12px;
+  border-left:3px solid #ff9a9e;
+  text-align:left;
+}
+
+/* === 倒计时 === */
+.countdown-section{margin:20px 0}
+.countdown-label{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:10px}
+.countdown{
+  display:flex;justify-content:center;gap:12px;
+}
+.countdown .unit{
+  background:rgba(255,255,255,.1);
+  border-radius:10px;padding:10px 14px;min-width:60px;
+}
+.countdown .num{font-size:1.6rem;font-weight:bold;color:#ff9a9e;display:block}
+.countdown .txt{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:4px;display:block}
+
+/* === 按钮 === */
+.btn{
+  display:inline-block;margin-top:20px;
+  padding:12px 32px;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  color:#1a0a1e;font-weight:bold;font-size:1rem;
+  border:none;border-radius:25px;cursor:pointer;
+  transition:all .3s;
+}
+.btn:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(255,154,158,.4)}
+
+/* === 飘落爱心 === */
+.falling-heart{
+  position:fixed;top:-20px;
+  font-size:20px;
+  animation:fall linear forwards;
+  pointer-events:none;z-index:2;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+/* === 烟花 === */
+.firework{
+  position:fixed;pointer-events:none;z-index:3;
+}
+.firework-particle{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  animation:explode 1s ease-out forwards;
+}
+@keyframes explode{
+  0%{transform:translate(0,0);opacity:1}
+  100%{opacity:0}
+}
+
+/* 手机端 */
+@media(max-width:480px){
+  .card{padding:35px 20px}
+  h1{font-size:1.8rem}
+  .cake{font-size:60px}
+  .wish{font-size:.9rem;padding:15px}
+  .countdown .unit{min-width:50px;padding:8px 10px}
+  .countdown .num{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="card">
+  <div class="cake">🎂</div>
+  <h1>赵秋田，生日快乐！</h1>
+  <p class="subtitle">2026 · 9月21日 · 属于你的一天</p>
+
+  <!-- 蜡烛 -->
+  <div class="candles" id="candles">
+    <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+    <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+    <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+    <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+    <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+  </div>
+  <p class="blow-hint">👆 点击蜡烛，许个愿吧</p>
+
+  <!-- 祝福语 -->
+  <div class="wish">
+    <p>亲爱的秋田：</p>
+    <p>今天是9月21日，一个对我来说无比特殊的日子——因为这一天，世界上多了一个你，也多了一个和我同一天生日的人。<br>
+    这6个月里，从开封到杭州，屏幕两端的早安晚安，都是我最珍惜的日常。</p>
+    <p>你短暂停留在杭州，但我的心早已跟着你去了那里。愿新的一岁，你眼里有光，身边有我，我们早日结束异地，在同一个城市，一起吹灭同一根蜡烛。🎂</p>
+    <p style="text-align:right;margin-top:12px;color:#ff9a9e">—— 嘉聪</p>
+  </div>
+
+  <!-- 生日倒计时 -->
+  <div class="countdown-section">
+    <p class="countdown-label" id="cdLabel">距离下一个生日还有</p>
+    <div class="countdown" id="countdown">
+      <div class="unit"><span class="num" id="cdDays">--</span><span class="txt">天</span></div>
+      <div class="unit"><span class="num" id="cdHours">--</span><span class="txt">时</span></div>
+      <div class="unit"><span class="num" id="cdMins">--</span><span class="txt">分</span></div>
+      <div class="unit"><span class="num" id="cdSecs">--</span><span class="txt">秒</span></div>
+    </div>
+  </div>
+
+  <button class="btn" onclick="launchFireworks()">🎆 放烟花庆祝</button>
+</div>
+
+<script>
+// 星空
+(function(){
+  const c=document.getElementById('stars');
+  for(let i=0;i<80;i++){
+    const s=document.createElement('div');s.className='star';
+    const size=Math.random()*2+1;
+    s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*2}s;animation-duration:${Math.random()*2+1}s`;
+    c.appendChild(s);
+  }
+})();
+
+// 吹蜡烛
+let blown=0;
+function blow(el){
+  const f=el.querySelector('.flame');
+  if(!f.classList.contains('out')){
+    f.classList.add('out');blown++;
+    if(blown>=5){
+      setTimeout(()=>{
+        alert('🎉 愿望一定会实现的！');
+        launchFireworks();
+      },600);
+    }
+  }
+}
+
+// 飘落爱心
+function dropHeart(){
+  const h=document.createElement('div');h.className='falling-heart';
+  h.textContent=['❤','💖','🌸','✨','🎂'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'%';
+  h.style.fontSize=(Math.random()*14+14)+'px';
+  h.style.animationDuration=(Math.random()*3+3)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}
+setInterval(dropHeart,800);
+
+// 烟花
+function launchFireworks(){
+  for(let i=0;i<5;i++){
+    setTimeout(()=>{
+      const fw=document.createElement('div');fw.className='firework';
+      fw.style.left=Math.random()*80+10+'%';
+      fw.style.top=Math.random()*40+10+'%';
+      document.body.appendChild(fw);
+      const colors=['#ff6b9d','#ffd700','#ff9a9e','#a1c4fd','#c2e9fb','#fad0c4'];
+      for(let j=0;j<30;j++){
+        const p=document.createElement('div');p.className='firework-particle';
+        const angle=Math.random()*Math.PI*2;
+        const dist=Math.random()*80+40;
+        const dx=Math.cos(angle)*dist,dy=Math.sin(angle)*dist;
+        p.style.background=colors[Math.floor(Math.random()*colors.length)];
+        p.style.animation=`explode ${Math.random()*.5+.5}s ease-out forwards`;
+        p.style.setProperty('--dx',dx+'px');
+        p.style.setProperty('--dy',dy+'px');
+        // 用JS直接设置transform终点
+        p.animate([
+          {transform:'translate(0,0)',opacity:1},
+          {transform:`translate(${dx}px,${dy}px)`,opacity:0}
+        ],{duration:Math.random()*500+500,fill:'forwards'});
+        fw.appendChild(p);
+      }
+      setTimeout(()=>fw.remove(),1200);
+    },i*300);
+  }
+}
+
+// 生日倒计时（下一个9月21日）
+function updateCountdown(){
+  const now=new Date();
+  let target=new Date(now.getFullYear(),8,21); // 9月(0-indexed)=8, 21日
+  if(now>target) target=new Date(now.getFullYear()+1,8,21);
+  const diff=target-now;
+  if(diff<=0){
+    document.getElementById('cdLabel').textContent='🎂 今天就是生日！';
+    return;
+  }
+  const d=Math.floor(diff/(1e3*60*60*24));
+  const h=Math.floor(diff%(1e3*60*60*24)/(1e3*60*60));
+  const m=Math.floor(diff%(1e3*60*60)/(1e3*60));
+  const s=Math.floor(diff%(1e3*60)/1e3);
+  document.getElementById('cdDays').textContent=d;
+  document.getElementById('cdHours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cdMins').textContent=String(m).padStart(2,'0');
+  document.getElementById('cdSecs').textContent=String(s).padStart(2,'0');
+}
+updateCountdown();setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
