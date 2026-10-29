@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>秋田 · 生日快乐 🎂</title>
+<title>赵秋田 · 生日快乐 🎂</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -14,7 +14,6 @@ body{
   overflow-x:hidden;padding:20px;
 }
 
-/* === 星空背景 === */
 .stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .star{
   position:absolute;background:#fff;border-radius:50%;
@@ -22,26 +21,23 @@ body{
 }
 @keyframes twinkle{0%{opacity:.2;transform:scale(.8)}100%{opacity:1;transform:scale(1.2)}}
 
-/* === 主卡片 === */
 .card{
   position:relative;z-index:1;
   background:rgba(255,255,255,.08);
   backdrop-filter:blur(15px);
   border:1px solid rgba(255,255,255,.15);
   border-radius:24px;
-  max-width:520px;width:100%;
-  padding:50px 35px;
+  max-width:540px;width:100%;
+  padding:50px 35px 35px;
   text-align:center;
   box-shadow:0 20px 60px rgba(0,0,0,.4);
   animation:cardIn 1s ease-out;
 }
 @keyframes cardIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 
-/* === 蛋糕 === */
 .cake{font-size:80px;margin-bottom:10px;animation:bounce 2s ease infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-/* === 标题 === */
 h1{
   font-size:2.4rem;
   background:linear-gradient(90deg,#ff9a9e,#fad0c4,#ffecd2);
@@ -50,7 +46,7 @@ h1{
 }
 .subtitle{color:rgba(255,255,255,.6);font-size:.95rem;margin-bottom:30px}
 
-/* === 蜡烛区 === */
+/* === 蜡烛 === */
 .candles{display:flex;justify-content:center;gap:18px;margin:25px 0}
 .candle{
   width:14px;height:50px;
@@ -69,7 +65,6 @@ h1{
 }
 .flame.out{animation:none;opacity:0;transition:opacity .5s}
 @keyframes flicker{0%{transform:translateX(-50%) scale(1)}100%{transform:translateX(-50%) scale(1.15) rotate(3deg)}}
-
 .blow-hint{color:rgba(255,255,255,.45);font-size:.85rem;margin-top:10px}
 
 /* === 祝福语 === */
@@ -84,12 +79,58 @@ h1{
   text-align:left;
 }
 
+/* === 时间轴 === */
+.timeline{margin:30px 0;text-align:left}
+.timeline-title{
+  text-align:center;color:#ff9a9e;font-size:1.1rem;
+  margin-bottom:18px;
+}
+.timeline-item{
+  position:relative;padding-left:28px;margin-bottom:22px;
+  border-left:2px solid rgba(255,154,158,.3);
+}
+.timeline-item::before{
+  content:'';position:absolute;left:-7px;top:4px;
+  width:12px;height:12px;border-radius:50%;
+  background:#ff9a9e;box-shadow:0 0 8px rgba(255,154,158,.5);
+}
+.timeline-item .date{color:#ff9a9e;font-size:.8rem;font-weight:bold}
+.timeline-item .desc{color:rgba(255,255,255,.75);font-size:.9rem;margin-top:4px;line-height:1.6}
+
+/* === 留言板 === */
+.message-board{margin:30px 0}
+.board-title{color:#ff9a9e;font-size:1.1rem;margin-bottom:15px}
+.msg-input{
+  width:100%;padding:12px 15px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,154,158,.3);
+  border-radius:12px;color:#fff;font-size:.95rem;
+  font-family:inherit;resize:vertical;min-height:70px;
+  outline:none;transition:border-color .3s;
+}
+.msg-input:focus{border-color:#ff9a9e}
+.msg-input::placeholder{color:rgba(255,255,255,.3)}
+.msg-submit{
+  margin-top:10px;padding:10px 28px;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  color:#1a0a1e;font-weight:bold;border:none;border-radius:20px;
+  cursor:pointer;font-size:.9rem;transition:all .3s;
+}
+.msg-submit:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(255,154,158,.3)}
+.msg-list{margin-top:18px;text-align:left}
+.msg-item{
+  background:rgba(255,255,255,.06);
+  border-radius:10px;padding:12px 15px;margin-bottom:10px;
+  color:rgba(255,255,255,.8);font-size:.9rem;line-height:1.6;
+  animation:msgIn .4s ease-out;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.msg-item .msg-time{color:rgba(255,255,255,.35);font-size:.75rem;margin-top:6px}
+
 /* === 倒计时 === */
 .countdown-section{margin:20px 0}
 .countdown-label{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:10px}
-.countdown{
-  display:flex;justify-content:center;gap:12px;
-}
+.countdown{display:flex;justify-content:center;gap:12px}
 .countdown .unit{
   background:rgba(255,255,255,.1);
   border-radius:10px;padding:10px 14px;min-width:60px;
@@ -97,7 +138,6 @@ h1{
 .countdown .num{font-size:1.6rem;font-weight:bold;color:#ff9a9e;display:block}
 .countdown .txt{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:4px;display:block}
 
-/* === 按钮 === */
 .btn{
   display:inline-block;margin-top:20px;
   padding:12px 32px;
@@ -108,38 +148,32 @@ h1{
 }
 .btn:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(255,154,158,.4)}
 
-/* === 飘落爱心 === */
+/* === 网易云播放器 === */
+.player-wrapper{
+  margin:25px auto 0;
+  display:flex;justify-content:center;
+  filter:invert(.88) hue-rotate(180deg) saturate(.85);
+}
+.player-wrapper iframe{display:block;border-radius:8px;overflow:hidden}
+
+/* === 飘落 & 烟花 === */
 .falling-heart{
-  position:fixed;top:-20px;
-  font-size:20px;
+  position:fixed;top:-20px;font-size:20px;
   animation:fall linear forwards;
   pointer-events:none;z-index:2;
 }
-@keyframes fall{
-  to{transform:translateY(110vh) rotate(360deg);opacity:0}
-}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.firework{position:fixed;pointer-events:none;z-index:3}
+.firework-particle{position:absolute;width:4px;height:4px;border-radius:50%}
 
-/* === 烟花 === */
-.firework{
-  position:fixed;pointer-events:none;z-index:3;
-}
-.firework-particle{
-  position:absolute;width:4px;height:4px;border-radius:50%;
-  animation:explode 1s ease-out forwards;
-}
-@keyframes explode{
-  0%{transform:translate(0,0);opacity:1}
-  100%{opacity:0}
-}
-
-/* 手机端 */
 @media(max-width:480px){
-  .card{padding:35px 20px}
+  .card{padding:35px 20px 25px}
   h1{font-size:1.8rem}
   .cake{font-size:60px}
   .wish{font-size:.9rem;padding:15px}
   .countdown .unit{min-width:50px;padding:8px 10px}
   .countdown .num{font-size:1.3rem}
+  .player-wrapper iframe{width:280px!important;height:72px!important}
 }
 </style>
 </head>
@@ -171,7 +205,41 @@ h1{
     <p style="text-align:right;margin-top:12px;color:#ff9a9e">—— 嘉聪</p>
   </div>
 
-  <!-- 生日倒计时 -->
+  <!-- 我们的故事时间轴 -->
+  <div class="timeline">
+    <div class="timeline-title">✨ 我们的故事 ✨</div>
+    <div class="timeline-item">
+      <div class="date">2026年5月</div>
+      <div class="desc">我们相遇了，从此开封和杭州之间，多了一条牵挂的线。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2026年5月</div>
+      <div class="desc">第一次视频通话，你笑起来的样子，让我心跳漏了一拍。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2026年6月</div>
+      <div class="desc">你说要来杭州短暂停留，我开始偷偷查火车班次，盼着见面那天，后面我们在短短五个月见了五次。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">2026年9月21日</div>
+      <div class="desc">我们的共同生日！缘分大概就是，连生日都要选在同一天。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="date">未来</div>
+      <div class="desc">结束异地，在同一个城市醒来，每天都能说早安。❤️</div>
+    </div>
+  </div>
+
+  <!-- 留言板 -->
+  <div class="message-board">
+    <div class="board-title">💌 祝福</div>
+    <textarea class="msg-input" id="msgInput" placeholder="我爱你秋田..."></textarea>
+    <br>
+    <button class="msg-submit" onclick="addMessage()">发送祝福 💕</button>
+    <div class="msg-list" id="msgList"></div>
+  </div>
+
+  <!-- 倒计时 -->
   <div class="countdown-section">
     <p class="countdown-label" id="cdLabel">距离下一个生日还有</p>
     <div class="countdown" id="countdown">
@@ -183,6 +251,14 @@ h1{
   </div>
 
   <button class="btn" onclick="launchFireworks()">🎆 放烟花庆祝</button>
+
+  <!-- 网易云播放器 -->
+  <div class="player-wrapper">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0"
+      width="330" height="86"
+      src="https://music.163.com/outchain/player?type=2&id=2735575883&auto=1&height=66">
+    </iframe>
+  </div>
 </div>
 
 <script>
@@ -197,13 +273,15 @@ h1{
   }
 })();
 
-// 吹蜡烛
+// 吹蜡烛 + 自动放歌 + 烟花
 let blown=0;
 function blow(el){
   const f=el.querySelector('.flame');
   if(!f.classList.contains('out')){
     f.classList.add('out');blown++;
     if(blown>=5){
+      const iframe=document.querySelector('.player-wrapper iframe');
+      if(iframe) iframe.src=iframe.src;
       setTimeout(()=>{
         alert('🎉 愿望一定会实现的！');
         launchFireworks();
@@ -239,10 +317,6 @@ function launchFireworks(){
         const dist=Math.random()*80+40;
         const dx=Math.cos(angle)*dist,dy=Math.sin(angle)*dist;
         p.style.background=colors[Math.floor(Math.random()*colors.length)];
-        p.style.animation=`explode ${Math.random()*.5+.5}s ease-out forwards`;
-        p.style.setProperty('--dx',dx+'px');
-        p.style.setProperty('--dy',dy+'px');
-        // 用JS直接设置transform终点
         p.animate([
           {transform:'translate(0,0)',opacity:1},
           {transform:`translate(${dx}px,${dy}px)`,opacity:0}
@@ -254,10 +328,28 @@ function launchFireworks(){
   }
 }
 
-// 生日倒计时（下一个9月21日）
+// 留言板
+function addMessage(){
+  const input=document.getElementById('msgInput');
+  const text=input.value.trim();
+  if(!text){alert('写点什么再发送吧~');return}
+  const list=document.getElementById('msgList');
+  const now=new Date();
+  const time=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')
+    +' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+  const item=document.createElement('div');
+  item.className='msg-item';
+  item.innerHTML=`<div>${text}</div><div class="msg-time">${time}</div>`;
+  list.insertBefore(item,list.firstChild);
+  input.value='';
+  // 发送时飘一波爱心
+  for(let i=0;i<8;i++) setTimeout(dropHeart,i*100);
+}
+
+// 生日倒计时
 function updateCountdown(){
   const now=new Date();
-  let target=new Date(now.getFullYear(),8,21); // 9月(0-indexed)=8, 21日
+  let target=new Date(now.getFullYear(),8,21);
   if(now>target) target=new Date(now.getFullYear()+1,8,21);
   const diff=target-now;
   if(diff<=0){
